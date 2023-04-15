@@ -4,4 +4,6 @@ var filetype = path.extname(files)
 
 if (filetype =".hq"){
 	
+}else{
+    console.log("ファイルを取得できません。")
 }
