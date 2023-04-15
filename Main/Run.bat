@@ -1,1 +1,1 @@
-node mainapp.js
+node loadtype.js

@@ -1,1 +1,0 @@
-path.extname('index.html')
