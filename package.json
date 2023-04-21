@@ -1,0 +1,17 @@
+{
+  "name": "hqwery",
+  "version": "1.0.0",
+  "description": "<!DOCTYPE HTML> <html>   <ul>     <li><h2><b>HQweryの言語</b></h2>   </ul>   <h2>HQweryは制作中です。<h2>   <p>利用できるコードはありません。</p> </html>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4"
+  }
+}

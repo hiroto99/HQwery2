@@ -1,1 +1,1 @@
-node loadtype.js
+node Runes/index.js
