@@ -15,7 +15,7 @@
   <h2>変数</h2>
   <ul>
     <li><p>新規の場合(初期化,宣言)</p>
-    <pre><code>let 変数名 = 設定;</code></pre>
+    <pre><code>let 変数名;</code></pre>
     <li><p>既存の場合(再設定)</p>
     <pre><code>set 変数名 = 設定;</code></pre>
   </ul>
