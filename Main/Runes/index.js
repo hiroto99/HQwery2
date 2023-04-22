@@ -46,8 +46,10 @@ const read = (file) => {
 /* if (filename = ".hq"){
     console();
 } */
+console();
 
 function console(){
+    var i = 0;
     let out = "";
     var hq_command = ["print "];
     var js_command = [['console.log("', 1, '");\n']];
