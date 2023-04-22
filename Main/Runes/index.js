@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-var files = require(path.relative( __dirname , process.env.NODE_RC_FILE ) );
-var filename = path.extname(files)
+// var files = require(path.relative( __dirname , process.env.NODE_RC_FILE ) );
+// var filename = path.extname(files)
 
 function run(out, hq_command, js_command, inp){
     for (const i in inp) {
@@ -43,9 +43,9 @@ const read = (file) => {
     return inpfile;
 }
 
-if (filename = ".hq"){
+/* if (filename = ".hq"){
     console();
-}
+} */
 
 function console(){
     let out = "";
