@@ -1,1 +1,1 @@
-node Runes/index.js
+node Main/Runes/index.js
