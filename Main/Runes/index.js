@@ -58,15 +58,15 @@ function console(){
         inp[i] = inp[i].split(/"/)
     }
     run(out, hq_command, js_command, inp);
-    let hq_command = ["let "];
-    let js_command = [['var "', 1, '" = "', 3, '";\n']]
+    var hq_command = ["let "];
+    var js_command = [['var "', 1, '" = "', 3, '";\n']]
     inp = inpbackup;
     for (const i in inp) {
         inp[i] = inp[i].split(/ /)
     }
     run(out, hq_command, js_command, inp);
-    let hq_command = ["set "];
-    let js_command = [['"', 1, '" = "', 3, '";\n']]
+    var hq_command = ["set "];
+    var js_command = [['"', 1, '" = "', 3, '";\n']]
     inp = inpbackup;
     for (const i in inp) {
         inp[i] = inp[i].split(/ /)
