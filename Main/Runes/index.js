@@ -5,9 +5,6 @@ var filename = path.extname(files)
 
 function run(out, hq_command, js_command, inp){
     for (const i in inp) {
-        inp[i] = inp[i].split(/"/)
-    }
-    for (const i in inp) {
         for (const u in hq_command) {
             if (~inp[i][0].indexOf(hq_command)) {
                 for (const f in js_command) {
@@ -56,8 +53,16 @@ function console(){
     var js_command = [['console.log("', 1, '");\n']];
     let thisfile = '..Test.hq'
     let inp = (read(thisfile).replace(/\n/g, '')).split(/;/);
+    let inpbackup = inp
+    for (const i in inp) {
+        inp[i] = inp[i].split(/"/)
+    }
     run(out, hq_command, js_command, inp);
     let hq_command = ["set "];
-    let js_command = [['var "', 1, '" =']]
+    inp = inpbackup;
+    for (const i in inp) {
+        inp[i] = inp[i].split(/'/)
+    }
+    let js_command = [['var "', 1, '" = "', 2, '";\n']]
     build(out);
 }
