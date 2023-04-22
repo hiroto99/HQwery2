@@ -1,5 +1,7 @@
+const { endHiddenCallStack } = require('@babel/core/lib/errors/rewrite-stack-trace');
 const fs = require('fs');
 const path = require('path');
+const { exit } = require('process');
 // var files = require(path.relative( __dirname , process.env.NODE_RC_FILE ) );
 // var filename = path.extname(files)
 
@@ -46,14 +48,17 @@ const read = (file) => {
 /* if (filename = ".hq"){
     console();
 } */
-console();
+let thisfile = '../Test.hq'
+let inp = (read(thisfile).replace(/\n/g, '')).split(/;/);
+window.external.csharp(inp);
+Main();
 
-function console(){
+function Main(){
     var i = 0;
     let out = "";
     var hq_command = ["print "];
     var js_command = [['console.log("', 1, '");\n']];
-    let thisfile = '..Test.hq'
+    let thisfile = '../Test.hq'
     let inp = (read(thisfile).replace(/\n/g, '')).split(/;/);
     let inpbackup = inp
     for (const i in inp) {
