@@ -1,0 +1,4 @@
+*.hq linguist-language=HQuery
+
+# 言語名の空白はハイフンに置換する
+*.glyphs linguist-language=OpenStep-Property-List
