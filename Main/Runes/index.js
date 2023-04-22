@@ -58,11 +58,19 @@ function console(){
         inp[i] = inp[i].split(/"/)
     }
     run(out, hq_command, js_command, inp);
-    let hq_command = ["set "];
+    let hq_command = ["let "];
+    let js_command = [['var "', 1, '" = "', 3, '";\n']]
     inp = inpbackup;
     for (const i in inp) {
-        inp[i] = inp[i].split(/'/)
+        inp[i] = inp[i].split(/ /)
     }
-    let js_command = [['var "', 1, '" = "', 2, '";\n']]
+    run(out, hq_command, js_command, inp);
+    let hq_command = ["set "];
+    let js_command = [['"', 1, '" = "', 3, '";\n']]
+    inp = inpbackup;
+    for (const i in inp) {
+        inp[i] = inp[i].split(/ /)
+    }
+    run(out, hq_command, js_command, inp);
     build(out);
 }
