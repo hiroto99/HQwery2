@@ -50,34 +50,34 @@ const read = (file) => {
 } */
 let thisfile = '../Test.hq'
 let inp = (read(thisfile).replace(/\n/g, '')).split(/;/);
-window.external.csharp(inp);
 Main();
 
 function Main(){
     var i = 0;
     let out = "";
-    var hq_command = ["print "];
-    var js_command = [['console.log("', 1, '");\n']];
     let thisfile = '../Test.hq'
-    let inp = (read(thisfile).replace(/\n/g, '')).split(/;/);
+    let inp = "'(read(thisfile).replace(/\n/g, '')).split(/;/);'"
     let inpbackup = inp
     for (const i in inp) {
         inp[i] = inp[i].split(/"/)
     }
+    var hq_command = ["print "];
+    var js_command = [['console.log("', 1, '");\n']];
     run(out, hq_command, js_command, inp);
-    var hq_command = ["let "];
-    var js_command = [['var "', 1, '" = "', 3, '";\n']]
     inp = inpbackup;
     for (const i in inp) {
         inp[i] = inp[i].split(/ /)
     }
+    var hq_command = ["let"];
+    var js_command = [['var "', 1, '" = "', 3, '";\n']]
     run(out, hq_command, js_command, inp);
+    inp = inpbackup;
+    for (const i in inp) {
+        inp[i] = inp[i].split(/ /)
+    }
     var hq_command = ["set "];
     var js_command = [['"', 1, '" = "', 3, '";\n']]
-    inp = inpbackup;
-    for (const i in inp) {
-        inp[i] = inp[i].split(/ /)
-    }
     run(out, hq_command, js_command, inp);
+    console.log(out)
     build(out);
 }
