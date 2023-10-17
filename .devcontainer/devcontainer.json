@@ -1,25 +1,38 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
 {
-	"name": "Node.js",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
-	"features": {
-		"ghcr.io/devcontainers-contrib/features/jshint:2": {}
+	"name": "Docker from Docker",
+
+	// Dockerfileの選択
+	"dockerFile": "dockerfile",
+	// portの設定です
+	"forwardPorts": [30000, 50000],
+	// devcontainerのユーザーをroot以外にします
+	"remoteUser": "user",
+	// devcontainer起動時にdocker run --initを実行します
+	"runArgs": ["--init"],
+	// Docker from Dockerを実現します
+	"mounts": [
+		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+	],
+	// 使わないと"while sleep 1000; do :; done"が実行されてCodeSpacesが使えなくなってしまいます
+	"overrideCommand": false,
+	// Docker from Dockerでホストファイルをマウントするために必要です
+	"remoteEnv": {
+		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+	},
+
+	// オプションの設定
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.profiles.linux": {
+					"bash": {
+						"path": "/bin/bash"
+					}
+				},
+				"terminal.integrated.defaultProfile.linux": "bash"
+			}
+		}
 	}
-
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "yarn install",
-
-	// Configure tool-specific properties.
-	// "customizations": {},
-
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
 }
